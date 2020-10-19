@@ -1,0 +1,251 @@
+
+
+:root {
+    --search-button: rgb(2, 20, 58) ;
+    --search-hover: rgb(4, 30, 88);
+    --background-color: #a3aabb;
+    --background-results: linear-gradient(
+        180deg, 
+        rgb(2, 8, 65) 0%, 
+        rgb(2, 20, 58) 35%, 
+        rgb(0, 0, 0) 100%
+    );
+    --soft-yellow: #fcfcfc;
+}
+
+h1{
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    animation: fadeInPage ease 1.5s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+    background-color: var(--background-color);
+    background: var(--background-results);
+    min-height: 100vh;
+    margin: 0;
+}
+button {
+    cursor: pointer;
+}
+button:active {
+    transform: scale(0.95);
+}
+input:focus, button:focus {
+    outline: none;
+}
+header {
+    background-image: url('https://images.radio.com/wbmpfm/Fiona_Apple2%20%282%29.jpg?width=1170&height=515&crop=1170:515,smart'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: var(--soft-black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 0;
+    position: relative;
+}
+header::after { /* same as lines 46-47 above */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.35);
+}
+header * {
+    z-index: 1;
+}
+header h1 {
+    margin: -10px 0 30px 0;
+    z-index: 2;
+}
+.shape-divider svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: rgba(3, 2, 39, 0.11);
+    fill: rgba(3, 0, 15, 0.87);
+    transform: scale(1, -1);
+    width: 100%;
+    max-height: 125%;
+}
+form {
+    position: relative;
+    width: 60%;
+    max-width: 600px;
+    z-index: 2;
+}
+form input {
+    border: 1px solid #040333;
+    border-radius: 10px;
+    background-color: var(--soft-yellow);
+    font-size: 1rem;
+    padding: 17px 30px;
+    width: 100%;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.4), 0 0 5px 0 rgba(0,0,0,0.6) inset;
+}
+form button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: var(--search-button);
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 30px;
+}
+form button:hover {
+    background-color: var(--search-hover);
+}
+/* END SEARCH FORM STYLES */
+
+
+/* START SEARCH RESULTS CONTAINER STYLES */
+.results-container {
+    color: var(--soft-yellow);
+    margin: 30px auto;
+    /* max-width: 100%; */
+    /* width: 500px; */
+    width: 85%;
+    max-width: 600px;
+    text-align: center;
+}
+.results-container h2 {
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.results-container p {
+    color: var(--soft-yellow);
+}
+.results-container img {
+    /* border: 2px solid; */
+    /* border-color: rgba(184,134,11,0.5); */
+    /* box-shadow: 0px 10px 20px -5px rgba(0,0,0,0.5); */
+    margin: 20px 0 0 0;
+    width: 300px;
+}
+.results-container button {
+    font-weight: bold;
+}
+.results-container button:hover {
+    background-color: var(--search-hover);
+}
+.search-heading {
+    margin-bottom: 1.5rem;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+}
+.centered button {
+    margin: 15px;
+    transform: scale(1.1);
+}
+.centered button:active {
+    transform: scale(1.025);
+}
+.btn {
+    background-color: rgb(5, 38, 109);
+    
+    border: 0;
+    border-radius: 7px;
+    color: #fff;
+    padding: 4px 10px;
+}
+ul.songs {
+    color: var(--soft-yellow);
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+ul.songs li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin: 10px 0;
+}
+.song-artist {
+    font-weight: bold;
+}
+.song-lyrics {
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+@keyframes fadeInPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* MEDIA QUERIES */
+@media(max-width: 500px) {
+    header h1 {
+        font-size: 1.85rem;
+    }
+    form input {
+        font-size: 0.9rem;
+    }
+    form button {
+        font-size: 0.9rem;
+    }
+    ul.songs li {
+        font-size: 0.8rem;
+    }
+    .btn {
+        font-size: 0.8rem;
+    }
+    .results-container h2 {
+        font-size: 1.25rem;
+    }
+    .results-container img {
+        width: 250px;
+    }
+    .song-lyrics {
+        font-size: 0.8rem;
+    }    
+}
+@media(max-width: 400px) {
+    header h1 {
+        font-size: 1.75rem;
+    }
+    form input {
+        font-size: 0.8rem;
+    }
+    form button {
+        font-size: 0.8rem;
+        padding: 14px 20px;
+    }    
+    .results-container p {
+        font-size: 0.8rem;
+    }
+    .results-container img {
+        width: 200px;
+    }
+}
+footer{
+    position: fixed;
+    bottom: 0%;
+    right: 1%;
+    color: rgb(252, 252, 252);
+}
+
+.fab{
+color: rgb(90, 87, 87);
+}
